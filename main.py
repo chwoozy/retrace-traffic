@@ -1,3 +1,4 @@
+from config import *
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
@@ -6,10 +7,11 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import Select
-from config import *
 import time
 
-driver = webdriver.Chrome("C:\Program Files (x86)\chromedriver.exe")
+# driver = webdriver.Chrome("C:\Program Files (x86)\chromedriver.exe"
+driver = webdriver.Chrome(PATHER)
+
 
 def execute_login():
     try:
@@ -23,7 +25,6 @@ def execute_login():
 
 def enter_end_point(ep):
     try:
-        # element = WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.NAME, "tab-logout")))
         tab_selector = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.NAME, ep)))
         driver.execute_script("arguments[0].click();", tab_selector)
     except TimeoutException:
@@ -49,7 +50,7 @@ def execute_end_point(ep):
         print("Unable to locate element, exiting...")
 
 
-driver.get("http://127.0.0.1:5000/")
+driver.get(APP)
 execute_login()
 for ep in end_points:
     enter_end_point(ep)

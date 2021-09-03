@@ -1,5 +1,10 @@
+import os
+
 # Chrome Driver Location
-PATH = "C:\Program Files (x86)\chromedriver.exe"
+PATHER = os.path.abspath("driver\chromedriver")
+
+# Web App
+APP = "http://127.0.0.1:80/"
 
 # Demo Login Details
 DEMO_EMAIL = "random@gmail.com"
