@@ -1,7 +1,7 @@
 import os
 
 # Chrome Driver Location
-PATHER = os.path.abspath("driver\chromedriver")
+PATH = "./driver/chromedriver"
 
 # Web App
 APP = "http://127.0.0.1:80/"
