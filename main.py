@@ -51,21 +51,21 @@ def execute_end_point(ep):
 chrome_options = Options()
 chrome_options.add_argument("--headless")
 chrome_options.add_argument("--no-sandbox")
-driver = webdriver.Chrome(executable_path=PATH, chrome_options=chrome_options)
-driver.get(APP)
-execute_login()
-for ep in end_points:
-    enter_end_point(ep)
-    execute_end_point(ep)
-    time.sleep(2)
-print("Complete Sequence")
+driver = webdriver.Chrome(executable_path=DRIVER_PATH, chrome_options=chrome_options)
+# driver.get(APP)
+# execute_login()
+# for ep in end_points:
+#     enter_end_point(ep)
+#     execute_end_point(ep)
+#     time.sleep(2)
+# print("Complete Sequence")
 
 while True:
-    start_time = datetime.datetime.now()
+    start_time = datetime.now()
     first_four_hours = start_time + timedelta(hours=4)
     last_four_hours = first_four_hours + timedelta(hours=4)
     first_count = 0
-    while (datetime.datetime.now() < first_four_hours):
+    while (datetime.now() < first_four_hours):
         driver.get(APP)
         execute_login()
         for ep in end_points:
@@ -75,7 +75,7 @@ while True:
         first_count += 1
         print("Complete Sequence, Bad App {}".format(first_count))
     second_count = 0
-    while (datetime.datetime.now() < last_four_hours):
+    while (datetime.now() < last_four_hours):
         driver.get(APP)
         execute_login()
         for ep in end_points:

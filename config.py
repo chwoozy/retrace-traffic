@@ -1,7 +1,7 @@
 import os
 
 # Chrome Driver Location
-PATH = "./driver/chromedriver"
+DRIVER_PATH = "./driver/chromedriver"
 
 # Web App
 APP = "http://127.0.0.1:80/"
