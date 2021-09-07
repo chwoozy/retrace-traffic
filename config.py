@@ -4,7 +4,11 @@ import os
 DRIVER_PATH = "./driver/chromedriver"
 
 # Web App
-APP = "http://127.0.0.1:80/"
+APP = "http://127.0.0.1:{}"
+
+# App Variants
+BAD_APP_PORT = 80
+GOOD_APP_PORT = 81
 
 # Demo Login Details
 DEMO_EMAIL = "random@gmail.com"
