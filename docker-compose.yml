@@ -1,0 +1,11 @@
+version: "3.7"
+networks:
+  default:
+    external: true
+    name: retrace_network
+services:
+  web:
+    container_name: automate_retrace
+    build: .
+    volumes:
+      - /usr/local/stackify:/usr/local/stackify
