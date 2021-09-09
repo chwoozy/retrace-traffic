@@ -3,12 +3,14 @@ import os
 # Chrome Driver Location
 DRIVER_PATH = "./driver/chromedriver"
 
-# Web App
-APP = "http://127.0.0.1:{}"
-
-# App Variants
+# Endpoint Ports
 BAD_APP_PORT = 80
 GOOD_APP_PORT = 81
+
+# Web App
+APP = "http://0.0.0.0:{}"
+GOOD_APP = APP.format(GOOD_APP_PORT)
+BAD_APP = APP.format(BAD_APP_PORT)
 
 # Demo Login Details
 DEMO_EMAIL = "random@gmail.com"

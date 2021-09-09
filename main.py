@@ -60,7 +60,7 @@ while True:
     last_four_hours = first_four_hours + timedelta(hours=4)
     first_count = 0
     while (datetime.now() < first_four_hours):
-        driver.get(APP.format(str(GOOD_APP_PORT)))
+        driver.get(GOOD_APP)
         execute_login()
         for ep in end_points:
             enter_end_point(ep)
@@ -70,7 +70,7 @@ while True:
         print("Complete Sequence, Good App {}".format(first_count))
     second_count = 0
     while (datetime.now() < last_four_hours):
-        driver.get(APP.format(str(BAD_APP_PORT)))
+        driver.get(BAD_APP)
         execute_login()
         for ep in end_points:
             enter_end_point(ep)
