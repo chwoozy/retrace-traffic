@@ -47,11 +47,14 @@ def execute_end_point(ep):
         driver.refresh()
         print("Unable to locate element, exiting...")
 
+def deploy():
+    print("hi")
+
 
 chrome_options = Options()
 chrome_options.add_argument("--headless")
 chrome_options.add_argument("--no-sandbox")
-driver = webdriver.Chrome(executable_path=DRIVER_PATH, chrome_options=chrome_options)
+driver = webdriver.Chrome(executable_path=DRIVER_PATH, options=chrome_options)
 
 
 while True:
@@ -59,6 +62,7 @@ while True:
     first_four_hours = start_time + timedelta(hours=4)
     last_four_hours = first_four_hours + timedelta(hours=4)
     first_count = 0
+    deploy()
     while (datetime.now() < first_four_hours):
         driver.get(GOOD_APP)
         execute_login()
@@ -69,6 +73,7 @@ while True:
         first_count += 1
         print("Complete Sequence, Good App {}".format(first_count))
     second_count = 0
+    deploy()
     while (datetime.now() < last_four_hours):
         driver.get(BAD_APP)
         execute_login()

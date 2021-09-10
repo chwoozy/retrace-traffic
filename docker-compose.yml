@@ -9,6 +9,3 @@ services:
     build: .
     volumes:
       - /usr/local/stackify:/usr/local/stackify
-    ports:
-    - "81:81"
-    - "80:80"
