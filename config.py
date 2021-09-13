@@ -49,7 +49,7 @@ api_list = [
     GETCOMMENTS,
     GETALBUMS,
     SLOWREQUEST,
-    # BADWEBREQUEST,
+    BADWEBREQUEST,
     # POST,
     # DELETE,
     # PUT,
