@@ -12,7 +12,6 @@ from selenium.webdriver.chrome.options import Options
 import time
 from datetime import datetime, timedelta
 import os
-import subprocess
 
 def execute_login():
     try:
@@ -50,11 +49,16 @@ def execute_end_point(ep):
         driver.refresh()
         print("Unable to locate element, exiting...")
 
-def start_deploy():
-    subprocess.run(start_deployment)
-
-def complete_deploy():
-    subprocess.run(complete_deployment)
+def start_deploy(apptype):
+    if apptype == "good":
+        os.system(start_good_deployment)
+    else:
+        os.system(start_bad_deployment)
+def complete_deploy(apptype):
+    if apptype == "good":
+        os.system(complete_good_deployment)
+    else:
+        os.system(complete_bad_deployment)
 
 
 chrome_options = Options()
@@ -68,8 +72,8 @@ while True:
     first_four_hours = start_time + timedelta(hours=4)
     last_four_hours = first_four_hours + timedelta(hours=4)
     first_count = 0
-    start_deploy()
-    complete_deploy()
+    start_deploy("good")
+    complete_deploy("good")
     while (datetime.now() < first_four_hours):
         driver.get(GOOD_APP)
         execute_login()
@@ -80,8 +84,8 @@ while True:
         first_count += 1
         print("Complete Sequence, Good App {}".format(first_count))
     second_count = 0
-    start_deploy()
-    complete_deploy()
+    start_deploy("bad")
+    complete_deploy("bad")
     while (datetime.now() < last_four_hours):
         driver.get(BAD_APP)
         execute_login()
