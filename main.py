@@ -1,5 +1,5 @@
 from config import *
-from scripts.bash import *
+from bash import *
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
