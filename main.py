@@ -12,6 +12,7 @@ from selenium.webdriver.chrome.options import Options
 import time
 from datetime import datetime, timedelta
 import os
+import subprocess
 
 def execute_login():
     try:
@@ -50,10 +51,10 @@ def execute_end_point(ep):
         print("Unable to locate element, exiting...")
 
 def start_deploy():
-    os.system(start_deployment)
+    subprocess.run(start_deployment)
 
 def complete_deploy():
-    os.system(complete_deployment)
+    subprocess.run(complete_deployment)
 
 
 chrome_options = Options()
