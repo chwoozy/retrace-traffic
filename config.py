@@ -4,13 +4,13 @@ import os
 DRIVER_PATH = "./driver/chromedriver"
 
 # Endpoint Ports
-BAD_APP_PORT = 80
-GOOD_APP_PORT = 81
+BAD_APP_PORT = 81
+GOOD_APP_PORT = 80
 
 # Web App
-APP = "http://0.0.0.0:{}"
-GOOD_APP = APP.format(GOOD_APP_PORT)
-BAD_APP = APP.format(BAD_APP_PORT)
+APP = "http://python_good_app:{}"
+GOOD_APP = "http://python_good_app:{}".format(GOOD_APP_PORT)
+BAD_APP = "http://python_bad_app:{}".format(BAD_APP_PORT)
 
 # Demo Login Details
 DEMO_EMAIL = "random@gmail.com"

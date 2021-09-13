@@ -1,4 +1,5 @@
 from config import *
+from scripts.bash import *
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
@@ -10,6 +11,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.chrome.options import Options
 import time
 from datetime import datetime, timedelta
+import os
 
 def execute_login():
     try:
@@ -47,8 +49,11 @@ def execute_end_point(ep):
         driver.refresh()
         print("Unable to locate element, exiting...")
 
-def deploy():
-    print("hi")
+def start_deploy():
+    os.system(start_deployment)
+
+def complete_deploy():
+    os.system(complete_deployment)
 
 
 chrome_options = Options()
@@ -62,7 +67,8 @@ while True:
     first_four_hours = start_time + timedelta(hours=4)
     last_four_hours = first_four_hours + timedelta(hours=4)
     first_count = 0
-    deploy()
+    start_deploy()
+    complete_deploy()
     while (datetime.now() < first_four_hours):
         driver.get(GOOD_APP)
         execute_login()
@@ -73,7 +79,8 @@ while True:
         first_count += 1
         print("Complete Sequence, Good App {}".format(first_count))
     second_count = 0
-    deploy()
+    start_deploy()
+    complete_deploy()
     while (datetime.now() < last_four_hours):
         driver.get(BAD_APP)
         execute_login()
