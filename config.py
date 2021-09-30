@@ -5,7 +5,7 @@ DRIVER_PATH = "./driver/chromedriver"
 
 # Endpoint Ports
 BAD_APP_PORT = 81
-GOOD_APP_PORT = 80
+GOOD_APP_PORT = 82
 
 # Web App
 APP = "http://python_good_app:{}"

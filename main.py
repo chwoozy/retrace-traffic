@@ -42,7 +42,7 @@ def execute_end_point(ep):
                     dropdown_selector.select_by_visible_text(ap)
                     execute_button = WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.NAME, "execute")))
                     execute_button.click()
-                except TimeoutException:
+                except Exception:
                     driver.refresh()
                     print("Unable to locate element in dropdown exiting...")
     except TimeoutException:
@@ -75,7 +75,11 @@ while True:
     start_deploy("good")
     complete_deploy("good")
     while (datetime.now() < first_four_hours):
-        driver.get(GOOD_APP)
+        try:
+            driver.get(GOOD_APP)
+        except Exception:
+            print("Unable to load page, refreshing...")
+            driver.refresh()
         execute_login()
         for ep in end_points:
             enter_end_point(ep)
@@ -87,7 +91,11 @@ while True:
     start_deploy("bad")
     complete_deploy("bad")
     while (datetime.now() < last_four_hours):
-        driver.get(BAD_APP)
+        try:
+            driver.get(BAD_APP)
+        except Exception:
+            print("Unable to load page, refreshing...")
+            driver.refresh()
         execute_login()
         for ep in end_points:
             enter_end_point(ep)

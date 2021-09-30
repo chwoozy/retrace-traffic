@@ -15,7 +15,7 @@ RUN apt-get -y install google-chrome-stable
 
 RUN chmod +X /driver/chromedriver
 
-EXPOSE 80
+EXPOSE 82
 EXPOSE 81
 
 CMD [ "python", "./main.py" ]
